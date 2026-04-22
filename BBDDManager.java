@@ -3,7 +3,6 @@ package cursos;
 import java.sql.*;
 
 public class BBDDManager {
-    private Connection conn;
     private String user;
     private String password;
     private String host;
