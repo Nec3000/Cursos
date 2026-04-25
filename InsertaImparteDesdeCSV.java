@@ -23,7 +23,14 @@ public class InsertaImparteDesdeCSV implements DataBaseTask {
                     Date date = Date.valueOf(datos[4].trim());
                     ps.setDate(5, date);
                     int res = ps.executeUpdate();
-                } catch (Exception e) {
+                    if(res!=1){
+                        throw new SQLException("Error al ejecutar la query");
+                    }
+                }catch(SQLException e){
+                    throw new SQLException("Error al ejecutar la query");//esto es para que no se haga una bbddexception, ya que so es sql lo pilla este antes
+                }
+
+                catch (Exception e) {
                     throw new BBDDException(e,"Insertando");
                 }
             }
