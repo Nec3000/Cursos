@@ -14,7 +14,6 @@ public class InsertaImparteDesdeCSV implements DataBaseTask {
             while(sc.hasNextLine()){
                 String linea = sc.nextLine();
                 String []datos = linea.split(",");
-
                 try(PreparedStatement ps = conn.prepareStatement("INSERT INTO imparte(profesor_id,curso_id,n_modulo,aula_id,fecha) VALUES(?,?,?,?,?)")) {
                     ps.setInt(1, Integer.parseInt(datos[0].trim()));
                     ps.setInt(2, Integer.parseInt(datos[1].trim()));
